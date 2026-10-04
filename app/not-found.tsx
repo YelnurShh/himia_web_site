@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function NotFound(){return <div className="container section"><div className="notice" style={{margin:'auto',textAlign:'center'}}><span className="eyebrow">404 · Бет табылмады</span><h1>Бұл жол зертханаға апармайды</h1><p>Сілтемені тексеріңіз немесе басты беттен қажетті бөлімді таңдаңыз.</p><Link className="button" href="/">Басты бетке қайту</Link></div></div>}

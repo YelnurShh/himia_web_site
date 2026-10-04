@@ -1,0 +1,6 @@
+'use client';
+import { useEffect, type ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { useAuth } from '@/hooks/use-auth';
+export function Guard({children,teacher=false}:{children:ReactNode;teacher?:boolean}){const {user,profile,loading,configured}=useAuth();const router=useRouter();useEffect(()=>{if(!loading&&configured&&!user)router.replace('/login');},[loading,configured,user,router]);if(loading)return <div className="container section"><div className="loading-card">Жүктелуде…</div></div>;if(!configured)return <div className="container section"><div className="notice"><h1>Firebase қосылымы қажет</h1><p>Жеке кабинет үшін Firebase баптауларын .env.local файлына енгізіңіз.</p><Link className="button" href="/lessons">Сабақтарға өту</Link></div></div>;if(!user)return <div className="container section"><div className="loading-card">Кіру бетіне өтіп жатырмыз…</div></div>;if(teacher&&profile?.role!=='teacher')return <div className="container section"><div className="notice"><h1>Бұл бет мұғалімге арналған</h1><p>Мұғалім рөлі Firestore ішінде беріледі.</p><Link className="button" href="/dashboard">Кабинетке өту</Link></div></div>;return <>{children}</>}

@@ -1,0 +1,158 @@
+:root {
+  --ink: #15213a;
+  --muted: #5d6b80;
+  --line: #e3e9f2;
+  --navy: #172a52;
+  --blue: #315fd5;
+  --cyan: #299bab;
+  --violet: #7767ca;
+  --bg: #f8fafc;
+  --shadow: 0 12px 34px rgba(28, 49, 86, .045);
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+  --ease-in-out: cubic-bezier(.77, 0, .175, 1);
+}
+
+body {
+  font-family: 'Montserrat Variable', Montserrat, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: -.012em;
+}
+
+.container { width: min(1240px, calc(100% - 48px)); }
+.section { padding-top: 96px; padding-bottom: 96px; }
+.section-sm { padding-top: 66px; padding-bottom: 66px; }
+.section-head { margin-bottom: 36px; }
+h1, h2, h3 { letter-spacing: -.045em; }
+h1 { font-size: clamp(50px, 6.3vw, 86px); line-height: 1.08; }
+h2 { font-size: clamp(34px, 3.7vw, 52px); line-height: 1.12; }
+h3 { font-size: 24px; line-height: 1.25; }
+p { line-height: 1.76; }
+.section-head p, .lead { font-size: 17px; }
+.eyebrow { font-size: 12px; letter-spacing: .13em; color: #3d65af; }
+
+.site-header { background: rgba(255,255,255,.96); }
+.header-inner { height: 82px; }
+.brand { font-size: 21px; letter-spacing: -.055em; gap: 10px; }
+.brand-name { display: block; font-weight: 800; line-height: 1.04; }
+.brand small { font-size: 10px; letter-spacing: .015em; line-height: 1.3; font-weight: 600; margin-top: 5px; }
+.brand-mark, .footer-brand .brand-mark { width: 44px; height: 44px; flex: none; display: block; background: none; border-radius: 0; box-shadow: none; }
+.main-nav { gap: clamp(12px, 1.8vw, 24px); }
+.main-nav a { font-size: 13px; font-weight: 650; }
+.main-nav a.active { color: var(--blue); }
+.footer { background: #17243f; }
+.footer p, .footer-grid>div>a:not(.brand) { font-size: 14px; }
+
+.button {
+  border-radius: 12px;
+  padding: 14px 23px;
+  font-size: 14px;
+  font-weight: 750;
+  box-shadow: none;
+  transition: background-color .18s var(--ease-out), color .18s var(--ease-out), border-color .18s var(--ease-out), transform .14s var(--ease-out);
+}
+.button:hover { background: #244fbf; box-shadow: none; }
+.button-outline:hover { background: #f4f7fc; }
+.button-sm { padding: 10px 16px; font-size: 13px; }
+.card { border-radius: 20px; box-shadow: var(--shadow); }
+.hover-card { transition: border-color .2s var(--ease-out), box-shadow .2s var(--ease-out), transform .2s var(--ease-out); }
+.hover-card:hover { box-shadow: 0 15px 32px rgba(26, 46, 82, .075); }
+.pill { border-radius: 9px; font-size: 12px; }
+.page-hero { background: #f1f5fb; padding: 82px 0 62px; }
+.page-hero h1 { font-size: clamp(48px, 5.1vw, 68px); line-height: 1.09; }
+.page-hero p { font-size: 19px; line-height: 1.7; }
+.input, .select, .textarea { font-size: 15px; }
+.stat-card strong { font-size: 35px; }
+.auth-form h1 { font-size: 44px; }
+.auth-art h2 { font-size: clamp(42px, 4.4vw, 68px); }
+
+body .home-hero { background: radial-gradient(circle at 74% 43%, #e8f3fa 0, #f4f7fc 43%, #fafbfd 78%); }
+body .hero-copy h1 { font-size: clamp(52px, 5.5vw, 82px); line-height: 1.09; max-width: 760px; }
+body .hero-copy p { font-size: 19px; line-height: 1.73; }
+body .hero-kicker { background: #fff; border-color: #e2e9f1; }
+body .hero-visual { isolation: isolate; }
+body .visual-glow { background: radial-gradient(circle, #d7e8f5 0, #e8f1f9a3 48%, transparent 70%); }
+body .orbit { border-color: #a9bfdc; border-width: 1.5px; }
+body .atom-core { background: #2858bc; box-shadow: 0 24px 54px rgba(37, 78, 163, .23); }
+body .atom-core svg { width: 52%; height: 52%; display: block; }
+body .float-tile, body .science-card { border-color: #dce5f0; box-shadow: 0 12px 28px rgba(38, 66, 109, .09); }
+body .home-stats { box-shadow: 0 12px 28px rgba(37, 57, 89, .055); }
+body .home-stats strong { font-size: 36px; }
+body .feature-section, body .steps-section { background: #f1f5fa; }
+body .lab-feature { background: #f2f7f9; }
+body .feature-card { border-color: #e3e9f0; }
+
+/* The hero illustration explains orbital motion. Its text and actions remain still. */
+body .orbit-one { animation: zertte-orbit-one 26s linear infinite; }
+body .orbit-two { animation: zertte-orbit-two 32s linear infinite reverse; }
+body .orbit-three { animation: zertte-orbit-three 38s linear infinite; }
+body .orbit::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: -8px;
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  background: #289db4;
+  box-shadow: 0 0 0 5px rgba(53, 177, 196, .15);
+}
+body .orbit-two::after { background: #7b6bd0; box-shadow: 0 0 0 5px rgba(123,107,208,.14); }
+body .orbit-three::after { background: #3e75d3; box-shadow: 0 0 0 5px rgba(62,117,211,.13); }
+body .electron { display: none; }
+body .tile-h { animation: zertte-float-left 5s var(--ease-in-out) infinite; }
+body .tile-o { animation: zertte-float-right 6s var(--ease-in-out) infinite; }
+body .science-card { animation: zertte-float-card 7s var(--ease-in-out) infinite; }
+body .float-formula { animation: zertte-float-formula 8s var(--ease-in-out) infinite; }
+
+@keyframes zertte-orbit-one { from { transform: rotate(-27deg); } to { transform: rotate(333deg); } }
+@keyframes zertte-orbit-two { from { transform: rotate(35deg); } to { transform: rotate(395deg); } }
+@keyframes zertte-orbit-three { from { transform: rotate(90deg); } to { transform: rotate(450deg); } }
+@keyframes zertte-float-left { 0%,100% { transform: translateY(0) rotate(-9deg); } 50% { transform: translateY(-10px) rotate(-9deg); } }
+@keyframes zertte-float-right { 0%,100% { transform: translateY(0) rotate(8deg); } 50% { transform: translateY(10px) rotate(8deg); } }
+@keyframes zertte-float-card { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes zertte-float-formula { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+@media (hover: none), (pointer: coarse) {
+  .button:hover, .hover-card:hover { transform: none; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .button:hover { transform: translateY(-2px); }
+  .button:active { transform: scale(.98); }
+  .hover-card:hover { transform: translateY(-4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body .orbit-one, body .orbit-two, body .orbit-three,
+  body .tile-h, body .tile-o, body .science-card, body .float-formula { animation: none; }
+  .hover-card, .button { transition-duration: .01ms; }
+}
+@media (max-width: 1100px) {
+  .menu-toggle { display: block; }
+  .main-nav { position: absolute; top: 81px; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 18px 24px 24px; background: #fff; box-shadow: 0 15px 30px rgba(18,39,80,.1); }
+  .main-nav.open { display: flex; }
+  .main-nav a { padding: 10px 0; font-size: 15px; }
+}
+@media (max-width: 1050px) {
+  .main-nav a { font-size: 15px; }
+}
+@media (max-width: 850px) {
+  .header-inner { height: 76px; }
+  .main-nav { top: 75px; }
+}
+@media (max-width: 640px) {
+  .container { width: min(100% - 30px, 1240px); }
+  .section { padding-top: 66px; padding-bottom: 66px; }
+  .section-sm { padding-top: 42px; padding-bottom: 42px; }
+  .header-inner { height: 68px; }
+  .brand-mark, .footer-brand .brand-mark { width: 40px; height: 40px; }
+  .main-nav { top: 67px; }
+  h1 { font-size: clamp(42px, 11vw, 58px); }
+  h2 { font-size: clamp(30px, 8vw, 42px); }
+  h3 { font-size: 21px; }
+  body .hero-copy h1 { font-size: clamp(43px, 11vw, 58px); }
+  body .hero-copy p { font-size: 17px; }
+  .page-hero { padding: 62px 0 44px; }
+  .page-hero h1 { font-size: clamp(42px, 10vw, 55px); }
+  .page-hero p { font-size: 17px; }
+  body .home-stats strong { font-size: 31px; }
+}
+
+.safety-lesson-icons{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0 23px}

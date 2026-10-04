@@ -1,0 +1,5 @@
+'use client';
+import { useEffect, useState } from 'react';
+import { dailyElement } from '@/data/elements';
+import type { Element } from '@/types';
+export function DailyElement(){const [element,setElement]=useState<Element|null>(null);useEffect(()=>{const update=()=>setElement(dailyElement());update();const timer=window.setInterval(update,60_000);document.addEventListener('visibilitychange',update);return()=>{window.clearInterval(timer);document.removeEventListener('visibilitychange',update)};},[]);return <div className="element-showcase"><div className="showcase-top"><span>КҮННІҢ ЭЛЕМЕНТІ</span><span className="showcase-dots">•••</span></div>{element?<><div className="showcase-symbol">{element.symbol}</div><div className="showcase-name"><strong>{element.name}</strong><span>№ {element.atomicNumber} · {element.atomicMass} u</span></div><p>{element.interestingFact}.</p><span className="showcase-corner">{element.atomicNumber}</span></>:<div className="daily-loading">Бүгінгі элемент жүктелуде…</div>}</div>}

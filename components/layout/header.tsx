@@ -1,0 +1,9 @@
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { useAuth } from '@/hooks/use-auth';
+import { logout } from '@/lib/firebase/auth';
+import { BrandMark } from './brand-mark';
+const links=[['/','Басты бет'],['/lessons','Сабақтар'],['/periodic-table','Периодтық жүйе'],['/lab','Зертхана'],['/chat','ЖИ чат'],['/experiments','Тәжірибелер']];
+export function Header(){const path=usePathname(),{user,profile}=useAuth(),[open,setOpen]=useState(false);return <header className="site-header"><div className="container header-inner"><Link href="/" className="brand" aria-label="Zertte — басты бет"><BrandMark/><span className="brand-name">Zert<b>te</b><small>Химияны бірге зерттейік</small></span></Link><nav className={open?'main-nav open':'main-nav'} aria-label="Негізгі мәзір">{links.map(([href,label])=><Link onClick={()=>setOpen(false)} key={href} className={path===href?'active':''} href={href}>{label}</Link>)}<Link onClick={()=>setOpen(false)} href="/about" className={path==='/about'?'active':''}>Жоба туралы</Link></nav><div className="header-actions">{user?<div className="user-menu"><Link className="avatar-link" href={profile?.role==='teacher'?'/teacher':'/dashboard'}><span className="avatar">{profile?.fullName?.[0]||'О'}</span><span className="user-name">{profile?.fullName?.split(' ')[0]||'Кабинет'}</span></Link><button className="text-button logout" onClick={()=>void logout()}>Шығу</button></div>:<Link className="button button-sm" href="/login">Кіру <span aria-hidden>↗</span></Link>}<button className="menu-toggle" aria-label={open?'Мәзірді жабу':'Мәзірді ашу'} aria-expanded={open} onClick={()=>setOpen(!open)}><span/><span/><span/></button></div></div></header>}
